@@ -19,10 +19,25 @@
 }
 
 
-//-(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
-//{
-//    
-//}
+-(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    NSArray<UICollectionViewLayoutAttributes *> *superAttrs = [super layoutAttributesForElementsInRect:rect];
+    
+    NSMutableArray<UICollectionViewLayoutAttributes *> *newAttrs = [NSMutableArray new];
+    
+    CGFloat collectionViewHeight = self.collectionView.frame.size.height;
+    
+    for (UICollectionViewLayoutAttributes *attribute in superAttrs) {
+        CGFloat newYposition = arc4random_uniform(collectionViewHeight - self.itemSize.height);
+        
+        attribute.frame = CGRectMake(attribute.frame.origin.x, newYposition, self.itemSize.width, self.itemSize.height);
+        
+        [newAttrs addObject:attribute];
+    }
+    
+    return newAttrs;
+    
+}
 
 
 @end
