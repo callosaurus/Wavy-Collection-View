@@ -30,8 +30,13 @@
     for (UICollectionViewLayoutAttributes *attribute in newAttrs) {
         CGFloat newYposition = arc4random_uniform(collectionViewHeight - self.itemSize.height);
         
-        attribute.frame = CGRectMake(attribute.frame.origin.x, newYposition, self.itemSize.width, self.itemSize.height);
+        CGFloat newHeight = newYposition * 0.6;
+        if (newHeight < 50){
+            newHeight = 50;
+        }
         
+        attribute.frame = CGRectMake(attribute.frame.origin.x, newYposition, self.itemSize.width, newHeight);
+
 //        [newAttrs addObject:attribute];
     }
     
