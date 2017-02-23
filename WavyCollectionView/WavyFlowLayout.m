@@ -23,16 +23,16 @@
 {
     NSArray<UICollectionViewLayoutAttributes *> *superAttrs = [super layoutAttributesForElementsInRect:rect];
     
-    NSMutableArray<UICollectionViewLayoutAttributes *> *newAttrs = [NSMutableArray new];
+    NSMutableArray<UICollectionViewLayoutAttributes *> *newAttrs = [[NSMutableArray alloc] initWithArray:superAttrs];;
     
     CGFloat collectionViewHeight = self.collectionView.frame.size.height;
     
-    for (UICollectionViewLayoutAttributes *attribute in superAttrs) {
+    for (UICollectionViewLayoutAttributes *attribute in newAttrs) {
         CGFloat newYposition = arc4random_uniform(collectionViewHeight - self.itemSize.height);
         
         attribute.frame = CGRectMake(attribute.frame.origin.x, newYposition, self.itemSize.width, self.itemSize.height);
         
-        [newAttrs addObject:attribute];
+//        [newAttrs addObject:attribute];
     }
     
     return newAttrs;
