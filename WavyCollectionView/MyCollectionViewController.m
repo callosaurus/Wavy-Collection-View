@@ -7,6 +7,8 @@
 //
 
 #import "MyCollectionViewController.h"
+#import "WavyFlowLayout.h"
+#import "WavyCell.h"
 
 @interface MyCollectionViewController ()
 
@@ -23,7 +25,10 @@ static NSString * const reuseIdentifier = @"wavyCell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    [self.collectionView registerClass:[WavyCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.backgroundColor = [UIColor grayColor];
+    WavyFlowLayout *wavyLayout = [WavyFlowLayout new];
+    self.collectionView.collectionViewLayout = wavyLayout;
     
     // Do any additional setup after loading the view.
 }
@@ -55,10 +60,11 @@ static NSString * const reuseIdentifier = @"wavyCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"wavyCell" forIndexPath:indexPath];
+    WavyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor yellowColor];
-    // Configure the cell
+    cell.wavyLabel.text = [NSString stringWithFormat:@"Cell %ld", indexPath.item];
+//    cell.ip = indexPath;
     
     
     return cell;

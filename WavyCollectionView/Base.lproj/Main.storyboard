@@ -24,22 +24,30 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wavyCell" id="1kz-4H-OEw">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wavyCell" id="xcS-FG-b5B" customClass="WavyCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ing-GH-L27">
-                                            <rect key="frame" x="4" y="15" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bi-nX-PZy">
+                                            <rect key="frame" x="0.0" y="15" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="1bi-nX-PZy" firstAttribute="leading" secondItem="xcS-FG-b5B" secondAttribute="leading" id="2Dh-7M-0e6"/>
+                                    <constraint firstAttribute="bottom" secondItem="1bi-nX-PZy" secondAttribute="bottom" constant="14" id="LYK-If-0rY"/>
+                                    <constraint firstItem="1bi-nX-PZy" firstAttribute="top" secondItem="xcS-FG-b5B" secondAttribute="top" constant="15" id="UuY-e0-B29"/>
+                                    <constraint firstAttribute="trailing" secondItem="1bi-nX-PZy" secondAttribute="trailing" id="lvV-0o-Bki"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="wavyLabel" destination="1bi-nX-PZy" id="I6b-dL-B5C"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -50,7 +58,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuw-7U-Eeo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="144"/>
+            <point key="canvasLocation" x="52" y="143.47826086956522"/>
         </scene>
     </scenes>
 </document>
